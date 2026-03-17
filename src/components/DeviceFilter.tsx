@@ -1,86 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
+import { WindowsIcon, PhoneIcon, TabletIcon, TvIcon, ChromebookIcon, WatchIcon, XrIcon, ChevronLeftIcon, ChevronRightIcon } from '../assets/icons';
 
 // ── Device data ──────────────────────────────────────────────────
 
 const DEVICES = [
-  {
-    id: 'windows',
-    label: 'Windows',
-    icon: () => (
-      <svg width="15" height="14" viewBox="0 0 24 22" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="1" y="1" width="22" height="15" rx="2" />
-        <path d="M8 21h8M12 16v5" />
-      </svg>
-    ),
-  },
-  {
-    id: 'phone',
-    label: 'Phone',
-    icon: () => (
-      <svg width="13" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="5" y="2" width="14" height="20" rx="2.5" />
-        <circle cx="12" cy="17.5" r="0.8" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    id: 'tablet',
-    label: 'Tablet',
-    icon: () => (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <circle cx="18.5" cy="12" r="0.8" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    id: 'tv',
-    label: 'TV',
-    icon: () => (
-      <svg width="16" height="15" viewBox="0 0 26 28" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="1" y="8" width="24" height="15" rx="2" />
-        <path d="M13 8L7 1M13 8L19 1" />
-        <path d="M13 23v3" />
-        <path d="M7 27L13 25L19 27" />
-      </svg>
-    ),
-  },
-  {
-    id: 'chromebook',
-    label: 'Chromebook',
-    icon: () => (
-      <svg width="16" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="13" rx="1.5" />
-        <path d="M1 21h22" strokeWidth={2.5} />
-        <path d="M9 17l2 4M15 17l-2 4" />
-      </svg>
-    ),
-  },
-  {
-    id: 'watch',
-    label: 'Watch',
-    icon: () => (
-      <svg width="13" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="6" />
-        <path d="M12 6V12L15 14" strokeLinecap="round" />
-        <path d="M9 3.5h6M9 20.5h6" strokeWidth={3} strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    id: 'xr',
-    label: 'XR headset',
-    icon: () => (
-      <svg width="19" height="13" viewBox="0 0 36 22" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="5" y="2" width="26" height="18" rx="3.5" />
-        <rect x="1" y="6" width="5" height="10" rx="2" />
-        <rect x="30" y="6" width="5" height="10" rx="2" />
-        <rect x="14" y="2" width="8" height="3.5" rx="1.75" />
-        <rect x="7" y="7" width="9" height="10" rx="2.5" />
-        <rect x="20" y="7" width="9" height="10" rx="2.5" />
-      </svg>
-    ),
-  },
+  { id: 'windows',    label: 'Windows',    icon: WindowsIcon },
+  { id: 'phone',      label: 'Phone',      icon: PhoneIcon },
+  { id: 'tablet',     label: 'Tablet',     icon: TabletIcon },
+  { id: 'tv',         label: 'TV',         icon: TvIcon },
+  { id: 'chromebook', label: 'Chromebook', icon: ChromebookIcon },
+  { id: 'watch',      label: 'Watch',      icon: WatchIcon },
+  { id: 'xr',         label: 'XR headset', icon: XrIcon },
 ];
 
 // ── DeviceFilter ─────────────────────────────────────────────────
@@ -125,7 +55,7 @@ export default function DeviceFilter() {
   }, []);
 
   return (
-    <div className="hidden lg:flex items-center py-4 relative">
+    <div className="hidden lg:flex items-center pt-6 pb-[30px] relative">
       {canScrollLeft && (
         <div className="absolute left-0 top-0 bottom-0 flex items-center z-10">
           <div className="w-12 h-full bg-gradient-to-r from-white to-transparent pointer-events-none" />
@@ -134,7 +64,7 @@ export default function DeviceFilter() {
             aria-label="Scroll left"
             className="absolute left-1 w-7 h-7 rounded-full border border-divider bg-white flex items-center justify-center text-ink-dim hover:text-ink shadow-sm transition-colors"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            <ChevronLeftIcon />
           </button>
         </div>
       )}
@@ -177,7 +107,7 @@ export default function DeviceFilter() {
             aria-label="Scroll right"
             className="absolute right-1 w-7 h-7 rounded-full border border-divider bg-white flex items-center justify-center text-ink-dim hover:text-ink shadow-sm transition-colors"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            <ChevronRightIcon />
           </button>
         </div>
       )}

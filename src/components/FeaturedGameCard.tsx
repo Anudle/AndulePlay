@@ -31,7 +31,7 @@ export default function FeaturedHero({ games }: Props) {
             className="w-[calc(100%-36px+24px)] lg:w-[550px] flex-shrink-0 px-3 first:pl-0 py-2 rounded-[8px] hover:bg-[#f5f5f5] transition-colors cursor-pointer group/card"
           >
             <div
-              className="w-full rounded-[8px] overflow-hidden shadow-sm transition-shadow flex flex-col h-[320px]"
+              className="w-full rounded-[8px] overflow-hidden shadow-sm transition-shadow flex flex-col h-[390px]"
               style={{ backgroundColor: game.themeColor ?? "#ffffff" }}
             >
               <div className="relative overflow-hidden flex-1">

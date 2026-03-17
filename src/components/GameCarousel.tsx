@@ -58,7 +58,7 @@ export default function GameCarousel({ title, games }: Props) {
   return (
     <section className="mt-10" aria-label={title}>
       <div className="mb-3">
-        <h2 className="text-lg font-medium text-ink">{title}</h2>
+        <h2 className="text-[22px] font-medium text-ink font-google-sans">{title}</h2>
       </div>
 
       {/* 769px+: animated carousel */}

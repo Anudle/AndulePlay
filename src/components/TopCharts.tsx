@@ -34,7 +34,7 @@ export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
   return (
     <section className="mt-8" aria-label="Top charts">
       <div className="mb-3">
-        <h2 className="text-base text-ink">{title}</h2>
+        <h2 className="text-[22px] font-medium text-ink font-google-sans">{title}</h2>
       </div>
 
       <div role="tablist" aria-label="Chart type" className="flex gap-2 mb-4">
