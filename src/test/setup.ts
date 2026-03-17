@@ -1,4 +1,5 @@
-import '@testing-library/jest-dom';
+/// <reference types="node" />
+import "@testing-library/jest-dom";
 
 // jsdom doesn't implement ResizeObserver
 global.ResizeObserver = class ResizeObserver {
