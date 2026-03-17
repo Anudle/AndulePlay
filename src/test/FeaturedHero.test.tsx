@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import FeaturedHero from '../components/FeaturedGameCard';
+import FeaturedHero from '../components/FeaturedGameCarousel';
 import type { Game } from '../types';
 
 const makeGame = (id: string, title: string, themeColor?: string): Game => ({
