@@ -1,22 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// ── Style constants ──────────────────────────────────────────────
-
-const FONT_WORDMARK = {
-  fontFamily: "'Google Sans', Roboto, Arial, sans-serif",
-  fontSize: 22,
-  fontWeight: 500,
-  WebkitFontSmoothing: 'antialiased' as const,
-  color: '#202124',
-};
-
-const FONT_NAV = {
-  fontFamily: "'Google Sans', Roboto, Arial, sans-serif",
-  fontSize: 14,
-  fontWeight: 500,
-  WebkitFontSmoothing: 'antialiased' as const,
-};
-
 // ── Navigation data ──────────────────────────────────────────────
 
 const DESKTOP_NAV = [
@@ -132,7 +115,7 @@ export default function Header() {
       <div className="hidden lg:flex items-center h-16 px-6 gap-6">
         <div className="flex items-center gap-2 flex-shrink-0">
           <PlayLogo />
-          <span style={FONT_WORDMARK}>Anudle Play</span>
+          <span className="text-[22px] font-medium text-ink">Anudle Play</span>
         </div>
 
         <nav aria-label="Main navigation" className="flex items-stretch h-full gap-0.5">
@@ -143,14 +126,13 @@ export default function Header() {
                 key={item.id}
                 onClick={() => setActiveDesktopNav(item.id)}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative px-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01875F]/50 focus-visible:rounded ${
-                  isActive ? 'text-[#01875F]' : 'text-[#5F6368] hover:text-[#202124]'
+                className={`relative px-4 text-sm font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-play-green/50 focus-visible:rounded ${
+                  isActive ? 'text-play-green' : 'text-ink-dim hover:text-ink'
                 }`}
-                style={FONT_NAV}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[3px] rounded-t-full bg-[#01875F]" />
+                  <span className="absolute bottom-0 left-3 right-3 h-[3px] rounded-t-full bg-play-green" />
                 )}
               </button>
             );
@@ -161,13 +143,13 @@ export default function Header() {
 
         <div className="flex items-center">
           <button
-            className="w-9 h-9 mx-3 flex items-center justify-center rounded-full text-[#5F6368] hover:bg-[#F1F3F4] transition-colors"
+            className="w-9 h-9 mx-3 flex items-center justify-center rounded-full text-ink-dim hover:bg-[#F1F3F4] transition-colors"
             aria-label="Search"
           >
             <SearchIcon />
           </button>
           <button
-            className="w-9 h-9 mx-3 flex items-center justify-center rounded-full text-[#5F6368] hover:bg-[#F1F3F4] transition-colors"
+            className="w-9 h-9 mx-3 flex items-center justify-center rounded-full text-ink-dim hover:bg-[#F1F3F4] transition-colors"
             aria-label="Help"
           >
             <HelpIcon />
@@ -182,11 +164,11 @@ export default function Header() {
       <div className="lg:hidden flex items-center justify-between max-w-[480px] mx-auto px-4 h-14">
         <div className="flex items-center gap-2">
           <PlayLogo />
-          <span style={FONT_WORDMARK}>Anudle Play</span>
+          <span className="text-[22px] font-medium text-ink">Anudle Play</span>
         </div>
         <div className="flex items-center gap-1">
           <button
-            className="relative w-9 h-9 flex items-center justify-center rounded-full text-[#5F6368] hover:bg-[#F1F3F4] transition-colors"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full text-ink-dim hover:bg-[#F1F3F4] transition-colors"
             aria-label="Notifications"
           >
             <BellIcon />
@@ -208,13 +190,13 @@ export default function Header() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveMobileTab(tab.id)}
-              className={`relative px-4 py-3 text-[13px] font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A73E8]/50 focus-visible:rounded ${
-                isActive ? 'text-[#1A73E8]' : 'text-[#5F6368] hover:text-[#202124]'
+              className={`relative px-4 py-3 text-[13px] font-medium whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue/50 focus-visible:rounded ${
+                isActive ? 'text-blue' : 'text-ink-dim hover:text-ink'
               }`}
             >
               {tab.label}
               {isActive && (
-                <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-t-full bg-[#1A73E8]" />
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-t-full bg-blue" />
               )}
             </button>
           );

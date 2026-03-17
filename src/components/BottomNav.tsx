@@ -71,8 +71,7 @@ export default function BottomNav() {
 
   return (
     <nav
-      className="lg:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-50 bg-white"
-      style={{ borderTop: '1px solid #E8EAED' }}
+      className="lg:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-50 bg-white border-t border-[#E8EAED]"
     >
       <div className="flex items-stretch">
         {navItems.map((item) => {

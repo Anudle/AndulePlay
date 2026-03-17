@@ -1,14 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 
-// ── Style constants ──────────────────────────────────────────────
-
-const FONT_NAV = {
-  fontFamily: "'Google Sans', Roboto, Arial, sans-serif",
-  fontSize: 14,
-  fontWeight: 500,
-  WebkitFontSmoothing: 'antialiased' as const,
-};
-
 // ── Device data ──────────────────────────────────────────────────
 
 const DEVICES = [
@@ -141,7 +132,7 @@ export default function DeviceFilter() {
           <button
             onClick={() => scrollPills('left')}
             aria-label="Scroll left"
-            className="absolute left-1 w-7 h-7 rounded-full border border-[#DADCE0] bg-white flex items-center justify-center text-[#5F6368] hover:text-[#202124] shadow-sm transition-colors"
+            className="absolute left-1 w-7 h-7 rounded-full border border-divider bg-white flex items-center justify-center text-ink-dim hover:text-ink shadow-sm transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
@@ -164,13 +155,12 @@ export default function DeviceFilter() {
               onClick={() => handleSelect(device.id)}
               aria-pressed={isActive}
               className={[
-                'flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all duration-150 border',
+                'flex-shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-150 border cursor-pointer',
                 'focus-visible:outline-none',
                 isActive
-                  ? 'bg-[#E6F4EA] text-[#137333] border-transparent focus-visible:bg-[#d3ead9]'
-                  : 'bg-white text-[#5F6368] border-[#DADCE0] hover:bg-gray-50 hover:border-gray-400 focus-visible:bg-gray-100 focus-visible:border-gray-400',
+                  ? 'bg-chart-green-bg text-chart-green border-transparent focus-visible:bg-[#d3ead9]'
+                  : 'bg-white text-ink-dim border-divider hover:bg-gray-50 focus-visible:bg-gray-100',
               ].join(' ')}
-              style={FONT_NAV}
             >
               <Icon />
               {device.label}
@@ -185,7 +175,7 @@ export default function DeviceFilter() {
           <button
             onClick={() => scrollPills('right')}
             aria-label="Scroll right"
-            className="absolute right-1 w-7 h-7 rounded-full border border-[#DADCE0] bg-white flex items-center justify-center text-[#5F6368] hover:text-[#202124] shadow-sm transition-colors"
+            className="absolute right-1 w-7 h-7 rounded-full border border-divider bg-white flex items-center justify-center text-ink-dim hover:text-ink shadow-sm transition-colors"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
           </button>

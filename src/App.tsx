@@ -20,10 +20,7 @@ import './index.css';
 
 export default function App() {
   return (
-    <div
-      className="min-h-screen bg-white text-[#202124]"
-      style={{ fontFamily: "'Google Sans', 'DM Sans', system-ui, sans-serif" }}
-    >
+    <div className="min-h-screen bg-white text-ink">
       <Header />
 
       <main className="max-w-[480px] lg:max-w-[1290px] mx-auto pb-28 lg:pb-16 lg:px-0">

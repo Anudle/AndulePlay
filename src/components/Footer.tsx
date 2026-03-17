@@ -18,7 +18,7 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="hidden lg:block border-t border-[#E0E0E0] mt-16" style={{ fontFamily: "'Google Sans', Helvetica, Arial, sans-serif", fontSize: 14, fontWeight: 400, WebkitFontSmoothing: "antialiased" }}>
+    <footer className="hidden lg:block border-t border-[#E0E0E0] mt-16 text-sm">
       <div className="max-w-[1290px] mx-auto py-10">
         {/* Top columns */}
         <div className="flex gap-24 mb-10">

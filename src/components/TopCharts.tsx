@@ -15,22 +15,6 @@ const TABS = [
   { id: "paid" as Tab, label: "Top paid" },
 ];
 
-// ── Style constants ──────────────────────────────────────────────
-
-const FONT_ROBOTO_16: React.CSSProperties = {
-  fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-  fontSize: 16,
-  fontWeight: 400,
-  WebkitFontSmoothing: "antialiased",
-};
-
-const FONT_TAB: React.CSSProperties = {
-  fontFamily: "'Google Sans', Roboto, Arial, sans-serif",
-  fontSize: 14,
-  fontWeight: 500,
-  WebkitFontSmoothing: "antialiased",
-};
-
 export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
   const [activeTab, setActiveTab] = useState<Tab>("free");
   const [touched, setTouched] = useState(false);
@@ -50,7 +34,7 @@ export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
   return (
     <section className="mt-8" aria-label="Top charts">
       <div className="mb-3">
-        <h2 className="text-[#202124]" style={FONT_ROBOTO_16}>{title}</h2>
+        <h2 className="text-base text-ink">{title}</h2>
       </div>
 
       <div role="tablist" aria-label="Chart type" className="flex gap-2 mb-4">
@@ -62,13 +46,12 @@ export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
             aria-controls="top-charts-panel"
             onClick={() => handleTabChange(tab.id)}
             className={[
-              'px-4 py-1.5 rounded-full transition-all duration-150 border',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#137333]/50',
+              'px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-150 border',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-green/50',
               activeTab === tab.id
-                ? 'bg-[#E6F4EA] text-[#137333] border-transparent'
-                : 'bg-white text-[#5F6368] border-[#DADCE0] hover:bg-gray-50',
+                ? 'bg-chart-green-bg text-chart-green border-transparent'
+                : 'bg-white text-ink-dim border-divider hover:bg-gray-50',
             ].join(' ')}
-            style={FONT_TAB}
           >
             {tab.label}
           </button>
@@ -88,9 +71,9 @@ export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
             tabIndex={0}
             aria-label={`${game.title}, ranked ${i + 1}, rated ${game.rating.toFixed(1)} stars`}
             onKeyDown={handleCardKey}
-            className="flex items-center gap-3 py-2.5 hover:bg-[#f5f5f5] active:bg-[#eeeeee] cursor-pointer rounded-xl -mx-2 px-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#137333]/40"
+            className="flex items-center gap-3 py-2.5 hover:bg-[#f5f5f5] active:bg-[#eeeeee] cursor-pointer rounded-xl -mx-2 px-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chart-green/40"
           >
-            <span className="w-5 text-center text-[#5F6368] flex-shrink-0" style={FONT_ROBOTO_16} aria-hidden="true">{i + 1}</span>
+            <span className="w-5 text-center text-base text-ink-dim flex-shrink-0" aria-hidden="true">{i + 1}</span>
             <img
               src={game.iconUrl}
               alt=""
@@ -98,11 +81,11 @@ export default function TopCharts({ topFree, topGrossing, topPaid }: Props) {
               className="w-14 h-14 rounded-2xl flex-shrink-0 border border-black/[0.05]"
             />
             <div className="flex-1 min-w-0" aria-hidden="true">
-              <p className="font-medium text-[14px] text-[#202124] truncate">{game.title}</p>
-              <p className="text-[12px] text-[#5F6368] truncate">{game.tags.join(' · ')}</p>
-              <p className="text-[12px] text-[#5F6368] flex items-center gap-0.5 mt-0.5">
+              <p className="font-medium text-sm text-ink truncate">{game.title}</p>
+              <p className="text-xs text-ink-dim truncate">{game.tags.join(' · ')}</p>
+              <p className="text-xs text-ink-dim flex items-center gap-0.5 mt-0.5">
                 {game.rating.toFixed(1)}
-                <span className="text-[#5f6369]">★</span>
+                <span className="text-ink-dim">★</span>
               </p>
             </div>
           </div>

@@ -5,36 +5,6 @@ interface Props {
   games: Game[];
 }
 
-// ── Style constants ──────────────────────────────────────────────
-
-const FONT_GOOGLE_SANS_14: React.CSSProperties = {
-  fontFamily: "'Google Sans', Roboto, Helvetica, Arial, sans-serif",
-  fontSize: 14,
-  fontWeight: 400,
-  WebkitFontSmoothing: "antialiased",
-};
-
-const FONT_GOOGLE_SANS_12: React.CSSProperties = {
-  fontFamily: "'Google Sans', Helvetica, Arial, sans-serif",
-  fontSize: 12,
-  fontWeight: 400,
-  WebkitFontSmoothing: "antialiased",
-};
-
-const FONT_TAGLINE: React.CSSProperties = {
-  fontFamily: "'Google Sans', Roboto, Arial, sans-serif",
-  fontSize: 18,
-  fontWeight: 500,
-  WebkitFontSmoothing: "antialiased",
-};
-
-const FONT_BADGE: React.CSSProperties = {
-  fontFamily: "'Google Sans', Roboto, Helvetica, Arial, sans-serif",
-  fontSize: 14,
-  fontWeight: 500,
-  WebkitFontSmoothing: "antialiased",
-};
-
 export default function FeaturedHero({ games }: Props) {
   const { scrollRef, isAnimating, canGoPrev, canGoNext, handleNext, handlePrev } =
     useScrollCarousel({ step: 2, total: games.length, clamp: true });
@@ -46,7 +16,7 @@ export default function FeaturedHero({ games }: Props) {
           onClick={handlePrev}
           disabled={isAnimating}
           aria-label="Previous"
-          className="hidden lg:flex absolute -left-5 top-[46%] -translate-y-1/2 z-10 w-[52px] h-[52px] bg-white rounded-full shadow-md items-center justify-center text-[#5F6368] hover:text-[#202124] opacity-0 group-hover/feat:opacity-100 transition-opacity duration-200 disabled:pointer-events-none"
+          className="hidden lg:flex absolute -left-5 top-[46%] -translate-y-1/2 z-10 w-[52px] h-[52px] bg-white rounded-full shadow-md items-center justify-center text-ink-dim hover:text-ink opacity-0 group-hover/feat:opacity-100 transition-opacity duration-200 disabled:pointer-events-none"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
@@ -73,8 +43,8 @@ export default function FeaturedHero({ games }: Props) {
                 <div className="absolute inset-0 bg-black/[0.08] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 {game.badge && (
                   <span
-                    className="absolute top-0 left-0 px-3 py-1 rounded-[8px] text-white"
-                    style={{ ...FONT_BADGE, background: "rgba(0,0,0,0.45)" }}
+                    className="absolute top-0 left-0 px-3 py-1 rounded-[8px] text-white text-sm font-medium"
+                    style={{ background: "rgba(0,0,0,0.45)" }}
                   >
                     {game.badge}
                   </span>
@@ -87,7 +57,7 @@ export default function FeaturedHero({ games }: Props) {
                       : "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)",
                   }}
                 >
-                  <p className="text-white leading-snug" style={FONT_TAGLINE}>
+                  <p className="text-white leading-snug text-lg font-medium">
                     {game.tagline ?? game.title}
                   </p>
                 </div>
@@ -106,32 +76,26 @@ export default function FeaturedHero({ games }: Props) {
                 />
                 <div className="flex-1 min-w-0">
                   <p
-                    className="truncate"
-                    style={{
-                      ...FONT_GOOGLE_SANS_14,
-                      color: game.themeColor ? "#ffffff" : "#111827",
-                    }}
+                    className="truncate text-sm"
+                    style={{ color: game.themeColor ? "#ffffff" : "#111827" }}
                   >
                     {game.title}
                   </p>
                   <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                     <span
-                      className="truncate max-w-[120px]"
-                      style={{
-                        ...FONT_GOOGLE_SANS_12,
-                        color: game.themeColor ? "rgba(255,255,255,0.65)" : "#6B7280",
-                      }}
+                      className="truncate max-w-[120px] text-xs"
+                      style={{ color: game.themeColor ? "rgba(255,255,255,0.65)" : "#6B7280" }}
                     >
                       {game.developer}
                     </span>
                     <span
-                      className="text-[12px]"
+                      className="text-xs"
                       style={{ color: game.themeColor ? "rgba(255,255,255,0.35)" : "#D1D5DB" }}
                     >
                       ·
                     </span>
                     <span
-                      className="text-[12px] flex items-center gap-0.5"
+                      className="text-xs flex items-center gap-0.5"
                       style={{ color: game.themeColor ? "rgba(255,255,255,0.65)" : "#4B5563" }}
                     >
                       {game.rating.toFixed(1)}
@@ -141,12 +105,8 @@ export default function FeaturedHero({ games }: Props) {
                 </div>
                 <div className="flex-shrink-0 flex flex-col items-end gap-1">
                   <button
-                    className="px-5 py-2 text-[13px] font-medium rounded-[8px] transition-colors"
-                    style={
-                      game.themeColor
-                        ? { background: "rgba(255,255,255,0.18)", color: "#ffffff" }
-                        : { background: "#1A73E8", color: "#ffffff" }
-                    }
+                    className="px-5 py-2 text-[13px] font-medium rounded-[8px] text-white transition-colors"
+                    style={{ background: game.themeColor ? "rgba(255,255,255,0.18)" : "#1A73E8" }}
                   >
                     Install
                   </button>
@@ -168,7 +128,7 @@ export default function FeaturedHero({ games }: Props) {
           onClick={handleNext}
           disabled={isAnimating}
           aria-label="Next"
-          className="hidden lg:flex absolute -right-5 top-[46%] -translate-y-1/2 z-10 w-[52px] h-[52px] bg-white rounded-full shadow-md items-center justify-center text-[#5F6368] hover:text-[#202124] opacity-0 group-hover/feat:opacity-100 transition-opacity duration-200 disabled:pointer-events-none"
+          className="hidden lg:flex absolute -right-5 top-[46%] -translate-y-1/2 z-10 w-[52px] h-[52px] bg-white rounded-full shadow-md items-center justify-center text-ink-dim hover:text-ink opacity-0 group-hover/feat:opacity-100 transition-opacity duration-200 disabled:pointer-events-none"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6" />
