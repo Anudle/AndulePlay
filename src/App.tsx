@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import DeviceFilter from './components/DeviceFilter';
-import FeaturedHero from './components/FeaturedGameCard';
+import FeaturedHero from './components/FeaturedGameCarousel';
 import GameCarousel from './components/GameCarousel';
 import TopCharts from './components/TopCharts';
 import BottomNav from './components/BottomNav';
