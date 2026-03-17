@@ -23,7 +23,7 @@ export default function App() {
     <div className="min-h-screen bg-white text-ink">
       <Header />
 
-      <main className="max-w-[480px] lg:max-w-[1290px] mx-auto pb-28 lg:pb-16 lg:px-0">
+      <main className="max-w-[480px] lg:max-w-[1290px] mx-auto pb-28 lg:pb-16 px-4 lg:px-0">
         <DeviceFilter />
 
         <div className="mt-4 -mx-4 lg:mx-0">

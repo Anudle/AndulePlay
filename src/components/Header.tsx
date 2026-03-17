@@ -181,7 +181,7 @@ export default function Header() {
       </div>
 
       {/* ── Mobile tab strip ── */}
-      <div role="tablist" aria-label="Browse" className="lg:hidden flex overflow-x-auto hide-scroll max-w-[480px] mx-auto">
+      <div role="tablist" aria-label="Browse" className="lg:hidden flex flex-wrap max-w-[480px] mx-auto px-2">
         {MOBILE_TABS.map((tab) => {
           const isActive = activeMobileTab === tab.id;
           return (
