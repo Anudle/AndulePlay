@@ -103,7 +103,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-40 bg-white/95 w-full transition-shadow duration-200"
+      className="sticky top-0 z-40 bg-white/95 w-full transition-shadow duration-200 overflow-x-hidden"
       style={{
         backdropFilter: 'blur(8px)',
         boxShadow: scrolled
